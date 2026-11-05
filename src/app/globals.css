@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "tailwindcss";
+@config "../../tailwind.config.ts";
+
+@layer base {
+  :root {
+    /* CHẾ ĐỘ SÁNG */
+    --bg-surface: 250, 251, 252;
+    --bg-card: 241, 245, 249;
+    --text-main: 15, 23, 42;
+    --text-muted: 71, 85, 105;
+    --border-main: 226, 232, 240;
+    --accent: 37, 99, 235;
+    
+    --font-sans: 'Be Vietnam Pro', 'Geist', 'Inter', system-ui, sans-serif;
+  }
+
+  .dark {
+    /* CHẾ ĐỘ TỐI */
+    --bg-surface: 12, 12, 12;
+    --bg-card: 24, 24, 27;
+    --text-main: 244, 244, 245;
+    --text-muted: 161, 161, 170;
+    --border-main: 39, 39, 42;
+    --accent: 96, 165, 250;
+  }
+
+  body {
+    background-color: rgb(var(--bg-surface));
+    color: rgb(var(--text-main));
+    font-family: var(--font-sans);
+    transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s ease;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    margin: 0;
+  }
+
+  /* Mobile: bỏ highlight xanh khi tap, giúp cảm giác chạm "sạch" như app native. */
+  html {
+    -webkit-tap-highlight-color: transparent;
+    text-size-adjust: 100%;
+  }
+
+  /* Focus rõ ràng cho điều hướng bằng bàn phím (WCAG 2.4.7). */
+  :focus-visible {
+    outline: 2px solid #ff4500;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* 1. Hệ thống Utility Core */
+  .bg-main { background-color: rgb(var(--bg-surface)); }
+  .bg-holder { background-color: rgb(var(--bg-card)); }
+  .text-main { color: rgb(var(--text-main)); }
+  .text-holder { color: rgb(var(--text-muted)); }
+  .border-holder { border-color: rgb(var(--border-main)); }
+
+  /* 1b. Safe-area (iPhone tai thỏ / thanh gesture) */
+  .pb-safe { padding-bottom: calc(0.5rem + env(safe-area-inset-bottom, 0px)); }
+  .pt-safe { padding-top: calc(0.5rem + env(safe-area-inset-top, 0px)); }
+  .mb-safe { margin-bottom: env(safe-area-inset-bottom, 0px); }
+  
+  .btn-primary { 
+    background-color: rgb(var(--accent)); 
+    color: #ffffff;
+    @apply transition-all active:scale-95 hover:opacity-90 font-bold px-4 py-2 rounded-xl flex items-center justify-center;
+  }
+
+  /* 2. Modal & BottomSheet Optimization (Fixed cho v4) */
+  .modal-container {
+    background-color: rgb(var(--bg-card));
+    border-top: 1px solid rgb(var(--border-main));
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    /* Responsive Desktop */
+    @media (min-width: 768px) {
+      border: 1px solid rgb(var(--border-main));
+    }
+  }
+  
+  .handle-bar {
+    width: 3rem; /* w-12 */
+    height: 0.375rem; /* h-1.5 */
+    background-color: rgb(var(--border-main));
+    border-radius: 9999px;
+    margin: 0.75rem auto 0.25rem auto;
+    /* Ẩn trên Desktop */
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+}
+
+/* 3. Forced Theme & Fix Lỗi Màu */
+:root:not(.dark) .text-slate-900, 
+:root:not(.dark) .text-gray-900,
+:root:not(.dark) .text-black {
+  color: rgb(var(--text-main)) !important;
+}
+
+.dark .bg-white { 
+  background-color: rgb(var(--bg-card)) !important; 
+}
+
+.dark .text-slate-900, 
+.dark .text-gray-900, 
+.dark .text-black,
+.dark .text-slate-800,
+.dark h1, .dark h2, .dark h3 {
+  color: rgb(var(--text-main)) !important;
+}
+
+.dark .text-slate-500, 
+.dark .text-gray-500 { 
+  color: rgb(var(--text-muted)) !important; 
+}
+
+.dark .border-gray-100, 
+.dark .border-gray-200, 
+.dark .border-slate-100, 
+.dark .border-slate-200 {
+  border-color: rgb(var(--border-main)) !important;
+}
+
+/* 4. Scrollbar & Selection */
+.dark ::-webkit-scrollbar { 
+  width: 10px; 
+}
+.dark ::-webkit-scrollbar-track { 
+  background: rgb(var(--bg-surface)); 
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 20px;
+  border: 3px solid rgb(var(--bg-surface));
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #52525b;
+}
+
+::selection { 
+  background-color: rgba(var(--accent), 0.3); 
+  color: white; 
+}
+
+/* 5. Accessibility: tôn trọng "giảm chuyển động" của hệ điều hành (WCAG 2.3.3 / Material). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 6. Contrast (WCAG 1.4.3): cam/thương hiệu cần đủ tương phản.
+   - Trên nền sáng: chữ cam dùng tông đậm (orange-700), nền nút cam đậm để chữ trắng đạt 4.5:1.
+   - Trên nền tối: dùng tông nhạt hơn (orange-400) để đủ tương phản.
+   Tailwind utility có specificity (0,1,0); các rule dưới đây (0,2,0, không nằm trong @layer)
+   luôn thắng mà không cần !important. */
+:root:not(.dark) .text-orange-500 { color: #9a3412; }
+.dark .text-orange-500 { color: #fb923c; }
+
+:root:not(.dark) .bg-orange-500 { background-color: #c2410c; }
+.dark .bg-orange-500 { background-color: #ea580c; }
+
+:root:not(.dark) .text-amber-500 { color: #b45309; }
+.dark .text-amber-500 { color: #fbbf24; }
+
+:root:not(.dark) .text-rose-500 { color: #be123c; }
+.dark .text-rose-500 { color: #fb7185; }
+
+
+/* 7. Compact Custom Scrollbar for Dashboard Viewports */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(150, 150, 150, 0.3) transparent;
+}
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(150, 150, 150, 0.25);
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(150, 150, 150, 0.5);
+}
+
+/* 8. SweetAlert2 Gaming Dark Theme Customizations */
+.swal2-container,
+div:where(.swal2-container),
+body.swal2-shown .swal2-container {
+  z-index: 999999 !important;
+  pointer-events: auto !important;
+}
+.swal2-popup {
+  font-family: var(--font-sans) !important;
+}
+.swal2-styled {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+.swal2-styled:hover {
+  transform: translateY(-1px) !important;
+}
+.swal2-styled:active {
+  transform: scale(0.97) !important;
+}

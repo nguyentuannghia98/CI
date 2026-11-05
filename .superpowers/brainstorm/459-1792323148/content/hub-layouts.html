@@ -1,0 +1,120 @@
+<h2>Central Hub — 3 hướng bố cục</h2>
+<p class="subtitle">Cùng một bộ tính năng (tin tức, biểu đồ, bật/tắt bot &amp; script, điều khiển Notion/Discord) nhưng cách sắp xếp khác nhau. Bấm chọn cái bạn thấy "đúng" nhất.</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="display:flex;height:200px;font-size:10px;background:#0d1117;color:#c9d1d9">
+        <div style="width:22%;background:#161b22;padding:6px;border-right:1px solid #30363d">
+          <div style="font-weight:700;margin-bottom:8px">NEXLOOT</div>
+          <div style="padding:3px 0;color:#58a6ff">● Dashboard</div>
+          <div style="padding:3px 0">Bots</div>
+          <div style="padding:3px 0">Scripts</div>
+          <div style="padding:3px 0">News</div>
+          <div style="padding:3px 0">Markets</div>
+          <div style="padding:3px 0">Logs</div>
+        </div>
+        <div style="flex:1;padding:8px">
+          <div style="display:flex;gap:6px;margin-bottom:6px">
+            <div style="flex:1;background:#161b22;border:1px solid #30363d;border-radius:6px;padding:6px">
+              <div style="color:#8b949e">News hôm nay</div>
+              <div style="margin-top:4px">3 mục mới</div>
+            </div>
+            <div style="flex:1;background:#161b22;border:1px solid #30363d;border-radius:6px;padding:6px">
+              <div style="color:#8b949e">Bot online</div>
+              <div style="margin-top:4px;color:#3fb950">4/5</div>
+            </div>
+            <div style="flex:1;background:#161b22;border:1px solid #30363d;border-radius:6px;padding:6px">
+              <div style="color:#8b949e">Scripts</div>
+              <div style="margin-top:4px">2 chạy</div>
+            </div>
+          </div>
+          <div style="background:#161b22;border:1px solid #30363d;border-radius:6px;padding:6px;margin-bottom:6px;height:60px">
+            <div style="color:#8b949e">Biểu đồ chứng khoán</div>
+            <div style="margin-top:8px;color:#3fb950">╱╲╱╱╲╱╲╱</div>
+          </div>
+          <div style="background:#161b22;border:1px solid #30363d;border-radius:6px;padding:6px">
+            <div style="color:#8b949e">Hoạt động gần đây</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Dashboard widget</h3>
+      <p>Sidebar điều hướng + lưới widget. Nhìn tổng quan một phát, mỗi thứ một ô nhỏ. Hợp khi bạn thích "mở ra là thấy hết".</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="height:200px;font-size:10px;background:#0d1117;color:#c9d1d9;padding:8px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+          <div style="font-weight:700">Automations</div>
+          <div style="background:#238636;border-radius:4px;padding:2px 6px">+ New</div>
+        </div>
+        <div style="background:#161b22;border:1px solid #30363d;border-radius:6px;padding:6px;margin-bottom:4px;display:flex;justify-content:space-between;align-items:center">
+          <div>Notion → daily digest<br><span style="color:#8b949e">chạy 08:00 · OK</span></div>
+          <div style="background:#3fb950;border-radius:10px;padding:2px 6px;color:#0d1117">ON</div>
+        </div>
+        <div style="background:#161b22;border:1px solid #30363d;border-radius:6px;padding:6px;margin-bottom:4px;display:flex;justify-content:space-between;align-items:center">
+          <div>Discord auto-reply bot<br><span style="color:#8b949e">đang nghe · 12 msg</span></div>
+          <div style="background:#3fb950;border-radius:10px;padding:2px 6px;color:#0d1117">ON</div>
+        </div>
+        <div style="background:#161b22;border:1px solid #30363d;border-radius:6px;padding:6px;margin-bottom:4px;display:flex;justify-content:space-between;align-items:center">
+          <div>stock-watch.py<br><span style="color:#8b949e">dừng · lỗi hôm qua</span></div>
+          <div style="background:#484f58;border-radius:10px;padding:2px 6px">OFF</div>
+        </div>
+        <div style="background:#161b22;border:1px solid #30363d;border-radius:6px;padding:6px;display:flex;justify-content:space-between;align-items:center">
+          <div>news-fetch.py<br><span style="color:#8b949e">chạy mỗi 30 phút</span></div>
+          <div style="background:#3fb950;border-radius:10px;padding:2px 6px;color:#0d1117">ON</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Bảng điều khiển automation</h3>
+      <p>Mỗi workflow/bot/script là một hàng có công tắc ON/OFF và trạng thái. Tập trung vào "bật/tắt và ra lệnh", không phải trang trí.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="height:200px;font-size:10px;background:#0d1117;color:#c9d1d9;padding:8px">
+        <div style="font-weight:700;margin-bottom:8px">Của tôi</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+          <div style="background:#161b22;border:1px solid #58a6ff;border-radius:8px;padding:8px">
+            <div style="font-size:14px">📰</div>
+            <div style="margin-top:4px">News</div>
+            <div style="color:#3fb950">3 mới</div>
+          </div>
+          <div style="background:#161b22;border:1px solid #30363d;border-radius:8px;padding:8px">
+            <div style="font-size:14px">📈</div>
+            <div style="margin-top:4px">Markets</div>
+            <div style="color:#8b949e">xem biểu đồ ›</div>
+          </div>
+          <div style="background:#161b22;border:1px solid #30363d;border-radius:8px;padding:8px">
+            <div style="font-size:14px">🤖</div>
+            <div style="margin-top:4px">Bots</div>
+            <div style="color:#3fb950">4 online</div>
+          </div>
+          <div style="background:#161b22;border:1px solid #30363d;border-radius:8px;padding:8px">
+            <div style="font-size:14px">🐍</div>
+            <div style="margin-top:4px">Scripts</div>
+            <div style="color:#8b949e">2/5 chạy</div>
+          </div>
+          <div style="background:#161b22;border:1px solid #30363d;border-radius:8px;padding:8px;grid-column:span 2">
+            <div style="display:flex;justify-content:space-between"><span>Notion</span><span style="color:#3fb950">kết nối</span></div>
+            <div style="display:flex;justify-content:space-between;margin-top:4px"><span>Discord</span><span style="color:#3fb950">kết nối</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Launcher dạng thẻ</h3>
+      <p>Mỗi công cụ một thẻ lớn, chạm là vào. Ưu tiên cảm giác "bấm một cái là tới nơi", rất hợp với bản mobile.</p>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top:20px">Chưa cái nào đúng ý? Cứ nhắn trong terminal điều bạn muốn khác — mockup chỉ để bạn phản ứng.</p>

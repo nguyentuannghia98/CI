@@ -1,0 +1,76 @@
+<h2>Bức tranh tổng — hệ thống bot của bạn</h2>
+<p class="subtitle">Bản phác thảo đầu tiên (phỏng đoán của tôi). Xem rồi nói cho tôi chỗ nào sai hoặc thiếu.</p>
+
+<div class="section">
+  <div class="label">1 · Lớp điều khiển — thứ bạn dùng hằng ngày</div>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
+    <div class="placeholder" style="flex:1;min-width:180px;padding:14px;text-align:left">
+      <strong>Web Dashboard</strong><br>
+      <span class="subtitle">Xem trạng thái, bật/tắt từng module</span>
+    </div>
+    <div class="placeholder" style="flex:1;min-width:180px;padding:14px;text-align:left">
+      <strong>App điện thoại</strong><br>
+      <span class="subtitle">Điều khiển + nhận thông báo khi ở ngoài</span>
+    </div>
+  </div>
+</div>
+
+<div style="text-align:center;opacity:.6;font-size:20px;margin:-4px 0 4px">▲ ▼</div>
+
+<div class="section">
+  <div class="label">2 · Server 24/7 — laptop để không (luôn cắm điện)</div>
+  <div style="border:1px solid rgba(128,128,128,.5);border-radius:12px;padding:14px;margin-top:8px">
+    <div class="placeholder" style="padding:12px;text-align:left">
+      <strong>Core nền dùng chung</strong><br>
+      <span class="subtitle">Bộ lịch chạy · Hàng đợi · CSDL · Nhật ký · Cấu hình · API cho web/app</span>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
+      <div class="placeholder" style="flex:1;min-width:150px;padding:12px;text-align:left"><strong>① Bot trả lời</strong></div>
+      <div class="placeholder" style="flex:1;min-width:150px;padding:12px;text-align:left"><strong>② Thu thập nguồn tin</strong></div>
+      <div class="placeholder" style="flex:1;min-width:150px;padding:12px;text-align:left"><strong>③ Tự động hoá Notion</strong></div>
+      <div class="placeholder" style="flex:1;min-width:150px;padding:12px;text-align:left;opacity:.55"><strong>④ … (tương lai)</strong></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="label">3 · Kết nối ra ngoài</div>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
+    <div class="placeholder" style="flex:1;min-width:160px;padding:12px;text-align:left">
+      <strong>Nguồn tin trên mạng</strong><br><span class="subtitle">Web · RSS · API · social…</span>
+    </div>
+    <div class="placeholder" style="flex:1;min-width:160px;padding:12px;text-align:left">
+      <strong>Notion</strong><br><span class="subtitle">Đọc / ghi tự động</span>
+    </div>
+    <div class="placeholder" style="flex:1;min-width:160px;padding:12px;text-align:left">
+      <strong>Tailscale</strong><br><span class="subtitle">Đường từ ngoài vào nhà, xuyên CGNAT Viettel</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="label">4 · Mục tiêu điều khiển</div>
+  <div class="placeholder" style="padding:12px;margin-top:8px;text-align:left">
+    <strong>Legion 5 Pro (máy chính của bạn)</strong><br>
+    <span class="subtitle">Server 24/7 gửi tín hiệu WOL để bật máy khi bạn ở ngoài</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="label">Cách hiểu</div>
+  <p class="subtitle" style="margin:0">Tất cả chạy trên con laptop để không. Web + App chỉ là lớp điều khiển, ghép lại sau cùng. Mỗi module ①②③ làm riêng, cùng dùng chung phần Core nền.</p>
+</div>
+
+<div class="section">
+  <div class="label">Phản hồi nhanh</div>
+  <div class="options">
+    <div class="option" data-choice="ok" onclick="toggleSelect(this)">
+      <div class="letter">✓</div>
+      <div class="content"><h3>Đúng hướng</h3><p>Đi tiếp, chốt bức tranh tổng</p></div>
+    </div>
+    <div class="option" data-choice="edit" onclick="toggleSelect(this)">
+      <div class="letter">✎</div>
+      <div class="content"><h3>Cần chỉnh</h3><p>Tôi sẽ gõ chỗ sai/thiếu ở khung chat</p></div>
+    </div>
+  </div>
+</div>
