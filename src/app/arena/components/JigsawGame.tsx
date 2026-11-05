@@ -15,14 +15,11 @@ import {
   Zap, 
   Flame, 
   Crown,
-  Medal,
   HelpCircle,
-  Flag,
-  AlertTriangle,
-  AlertCircle
+  Flag
 } from "lucide-react";
 import { showForfeitAlert } from "@/lib/swal";
-import type { ArenaRoom, Participant } from "../types";
+import type { ArenaRoom } from "../types";
 
 // Âm thanh Web Audio API tổng hợp (không phụ thuộc file ngoài)
 class JigsawSoundEngine {
@@ -192,7 +189,6 @@ export function JigsawGame({ room, currentUser, onFinish, onQuit }: JigsawGamePr
   const [isCompleted, setIsCompleted] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
   const [soundEnabled, setSoundEnabled] = useState(true);
-  const [showSurrenderConfirm, setShowSurrenderConfirm] = useState(false);
 
   // Hiệu ứng pháo giấy Confetti trên Canvas
   const confettiCanvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -253,7 +249,7 @@ export function JigsawGame({ room, currentUser, onFinish, onQuit }: JigsawGamePr
   // 2. THUẬT TOÁN XÁO TRỘN MẢNH GHÉP (SHUFFLE)
   const initAndShuffleBoard = useCallback((size: 3 | 4 | 5) => {
     const total = size * size;
-    let initial = Array.from({ length: total }, (_, i) => i);
+    const initial = Array.from({ length: total }, (_, i) => i);
 
     // Xáo trộn Fisher-Yates nhiều lần đảm bảo các mảnh bị đảo lộn
     for (let round = 0; round < 3; round++) {
@@ -264,7 +260,7 @@ export function JigsawGame({ room, currentUser, onFinish, onQuit }: JigsawGamePr
     }
 
     // Đảm bảo không tình cờ đã hoàn thành ngay từ đầu
-    let correctCount = initial.filter((val, idx) => val === idx).length;
+    const correctCount = initial.filter((val, idx) => val === idx).length;
     if (correctCount >= total - 1) {
       // Đổi chỗ 2 phần tử đầu
       [initial[0], initial[1]] = [initial[1], initial[0]];
@@ -432,6 +428,14 @@ export function JigsawGame({ room, currentUser, onFinish, onQuit }: JigsawGamePr
       setCompetitors((prev) =>
         prev.map((c) => (c.isSelf ? { ...c, progress: 100, finishedTime: timeSec } : c))
       );
+
+      // Thông báo hoàn thành trận đấu
+      onFinish({
+        timeSeconds: timeSec,
+        rank: currentRank,
+        isWinner,
+        score: Math.max(100, Math.round(10000 / (timeSec + 1))),
+      });
     }
   }, [tiles, isPlaying, isCompleted, elapsedMs, currentRank, triggerConfetti]);
 

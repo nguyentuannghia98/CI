@@ -396,7 +396,7 @@ export default function Auction3DArena({
     resizeObserver.observe(container);
 
     // 9. ANIMATION LOOP (VÒNG LẶP CHUYỂN ĐỘNG 60 FPS)
-    let clock = new THREE.Clock();
+    const clock = new THREE.Clock();
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);

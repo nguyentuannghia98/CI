@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect, useMemo, useCallback, useRef } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import Link from "next/link";
-import { Puzzle, Trophy, Timer, Loader2, LogOut, Users, AlertCircle, CheckCircle2, XCircle, Clock, Sparkles, Flame } from "lucide-react";
+import { Puzzle, Trophy, LogOut, Users, Clock, Sparkles, Flame } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import { useUser } from "@/components/auth/store/AuthStore";
 import type { SupabaseClient } from "@supabase/supabase-js";
@@ -13,7 +13,7 @@ import { RoomDetailModal } from "./components/RoomDetailModal";
 import { VictoryModal } from "./components/VictoryModal";
 import { CreateArenaModal } from "./components/CreateArenaModal";
 import { JigsawGame } from "./components/JigsawGame";
-import Swal, { showForfeitAlert, showLeaveRoomAlert } from "@/lib/swal";
+import Swal, { showLeaveRoomAlert } from "@/lib/swal";
 import type { ArenaRoom, Participant } from "./types";
 import { MOCK_ROOMS } from "./mockData";
 
@@ -634,7 +634,7 @@ export default function ArenaPage() {
                 <div className="bg-amber-500/10 border border-amber-500/20 p-4 rounded-2xl flex items-center gap-3 text-xs text-amber-300">
                   <Sparkles className="w-5 h-5 shrink-0 text-amber-400" />
                   <span>
-                    <strong>Thể lệ "Mảnh ghép thần tốc":</strong> Hệ thống lấy chính hình ảnh món hàng giải thưởng của Shop cắt ra thành các mảnh xáo trộn. 15 người chơi cùng đua nhau kéo ghép ảnh hoàn chỉnh. Ai xong nhanh nhất sẽ giành chiến thắng nhận sản phẩm 0đ!
+                    <strong>Thể lệ &quot;Mảnh ghép thần tốc&quot;:</strong> Hệ thống lấy chính hình ảnh món hàng giải thưởng của Shop cắt ra thành các mảnh xáo trộn. 15 người chơi cùng đua nhau kéo ghép ảnh hoàn chỉnh. Ai xong nhanh nhất sẽ giành chiến thắng nhận sản phẩm 0đ!
                   </span>
                 </div>
 

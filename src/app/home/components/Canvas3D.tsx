@@ -361,7 +361,7 @@ export default function Canvas3D() {
     // 8. RENDER & ANIMATION LOOP (MƯỢT MÀ 60FPS)
     // ═══════════════════════════════════════════════════════════════
     let animId: number;
-    let clock = new THREE.Clock();
+    const clock = new THREE.Clock();
 
     const animate = () => {
       animId = requestAnimationFrame(animate);

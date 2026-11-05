@@ -366,7 +366,7 @@ export default function MysteryAuction3DPage() {
                   <span>3. Tính Pháp Lý Của Lời Trả Giá</span>
                 </div>
                 <p className="text-zinc-300 pl-6">
-                  Mỗi lần nhấn nút "ĐẶT GIÁ" và dơ bảng là một cam kết giao dịch thực tế tương ứng với số tiền/điểm cọc bị tạm khóa.
+                  Mỗi lần nhấn nút &quot;ĐẶT GIÁ&quot; và dơ bảng là một cam kết giao dịch thực tế tương ứng với số tiền/điểm cọc bị tạm khóa.
                 </p>
               </div>
 

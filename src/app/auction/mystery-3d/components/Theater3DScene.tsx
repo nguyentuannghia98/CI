@@ -2037,7 +2037,7 @@ export default function Theater3DScene({
     resizeObserver.observe(container);
 
     // --- ANIMATION LOOP CHÍNH ---
-    let clock = new THREE.Clock();
+    const clock = new THREE.Clock();
 
     const animate = () => {
       animId = requestAnimationFrame(animate);

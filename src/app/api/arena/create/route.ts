@@ -100,7 +100,7 @@ export async function POST(req: NextRequest) {
     }
 
     // 4. Nếu có creatorId, thêm ngay creator vào danh sách người tham gia (arena_participants)
-    let participants = [];
+    const participants = [];
     if (creatorId) {
       try {
         await (admin as any)
